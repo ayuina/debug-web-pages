@@ -1,0 +1,28 @@
+@using System.Web.Configuration
+@using System.Net;
+<html>
+
+<head>
+  <title>Debug page</title>
+</head>
+
+<body style="background-color: #00E60A;">
+  @{
+    var pubIp = new System.Net.WebClient().DownloadString("https://api.ipify.org");
+  }
+  <h3>Debug information</h3>
+  <ul>
+    <li><strong>Request Url</strong><span>: @Request.Url</span></li>
+    <li><strong>Outbound public IP</strong><span>: @pubIp</span></li>
+    <li><strong>Inbound client IP</strong><span>: @Request.ServerVariables["REMOTE_ADDR"]</span></li>
+  </ul>
+  <strong>Headers</strong>
+  <ul>
+    @foreach (var h in Request.Headers)
+    {
+      <li><strong>@h</strong><span>: @Request.Headers[h.ToString()]</span></li>
+    }
+  </ul>
+</body>
+
+</html>
