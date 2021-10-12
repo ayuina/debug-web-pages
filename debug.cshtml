@@ -26,7 +26,7 @@
   
   <strong>Environment</strong>
   <ul>
-    @foreach (var k in Environment.GetEnvironmentVariables().Keys)
+    @foreach (string k in Environment.GetEnvironmentVariables().Keys)
     {
       <li><strong>@k</strong><span>: @Environment.GetEnvironmentVariable(k)</span></li>
     }
