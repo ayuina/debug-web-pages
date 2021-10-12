@@ -26,9 +26,9 @@
   
   <strong>Environment</strong>
   <ul>
-    @foreach (var h in Environment.GetEnvironmentVariables())
+    @foreach (var k in Environment.GetEnvironmentVariables().Keys)
     {
-      <li><strong>@h.Name</strong><span>: @h.Value</span></li>
+      <li><strong>@k</strong><span>: @Environment.GetEnvironmentVariable(k)</span></li>
     }
   </ul>
 
